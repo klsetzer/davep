@@ -40,7 +40,6 @@
 				src="images/Sheila/IMG_5616.jpeg"
 				alt="reading side"
 				/>
-				<h3>Dave P</h3>
 			</section>
 			<section data-autoslide="8000">
 				<img
@@ -48,7 +47,6 @@
 				src="images/Sheila/IMG_7850.jpeg"
 				alt="reading side"
 				/>
-				<h3>Dave P</h3>
 			</section>
 			<section data-autoslide="8000">
 				<img
@@ -104,8 +102,8 @@
 		Reveal.on("autoslidepaused", (event) => {
 			console.log("autoslide PAUSED"); //DEBUG
 			var audio = document.getElementById("backgroundMusic");
-			audio.play();
-			// audio.pause()
+			// audio.play();
+			audio.pause()
 		});
 		
 		window.addEventListener("keyup", playPauseKb, false);
