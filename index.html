@@ -1,36 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8" />
+	<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+	/>
 	
 	<title>Dave P Celebration of Life</title>
 	
-	<link rel="stylesheet" href="dist/reset.css">
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/reset.css" />
+	<link rel="stylesheet" href="dist/reveal.css" />
+	<link rel="stylesheet" href="dist/theme/black.css" />
 	
 	<!-- Theme used for syntax highlighted code -->
-	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" />
 </head>
 <body>
-	<audio data-autoplay autoplay loop id="backgroundMusic" src="audio/HoldOnToTheMemories.mp3"></audio>
+	<audio
+	data-autoplay
+	autoplay
+	loop
+	id="backgroundMusic"
+	src="audio/HoldOnToTheMemories.mp3"
+	></audio>
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<img class="stretch" src="images/Sheila/IMG_3480.jpeg" alt="reading side">
+				<audio data-autoplay="true" src=""></audio>
+				<img
+				class="stretch"
+				src="images/Sheila/IMG_3480.jpeg"
+				alt="reading side"
+				/>
 				<h3>Dave P</h3>
 			</section>
 			<section>
-				<img class="stretch" src="images/Sheila/IMG_5616.jpeg" alt="reading side">
+				<img
+				class="stretch"
+				src="images/Sheila/IMG_5616.jpeg"
+				alt="reading side"
+				/>
 				<h3>Dave P</h3>
 			</section>
 			<section>
-				<img class="stretch" src="images/Sheila/IMG_7850.jpeg" alt="reading side">
+				<img
+				class="stretch"
+				src="images/Sheila/IMG_7850.jpeg"
+				alt="reading side"
+				/>
 				<h3>Dave P</h3>
 			</section>
 			<section>
-				<img class="stretch" src="images/end_blessing.jpeg" alt="reading side">
+				<img
+				class="stretch"
+				src="images/end_blessing.jpeg"
+				alt="reading side"
+				/>
 			</section>
 		</div>
 	</div>
@@ -49,58 +75,63 @@
 			loop: true,
 			
 			// Autoplay
-			keyboardCondition: 'focused',
+			keyboardCondition: "focused",
 			fragments: true,
 			// autoSlideStoppable: true,
 			
 			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 			keyboard: {
-				27: () => { console.log('esc') }, // do something custom when ESC is pressed
-				13: 'next', // go to the next slide when the ENTER key is pressed
-				77: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
-			}
-			
+				27: () => {
+					console.log("esc");
+				}, // do something custom when ESC is pressed
+				13: "next", // go to the next slide when the ENTER key is pressed
+				77: null, // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
+			},
 		});
-
-		
 	</script>
 	<script>
 		var audio = document.getElementById("backgroundMusic");
-		var audioPlaying = true
+		var audioPlaying = true;
 		audio.play();
-		console.log('ready player');
-
-		Reveal.on( 'autoslideresumed', event => { 
-			console.log('autoslide RESUMED') //DEBUG
+		console.log("ready player");
+		
+		Reveal.on("autoslideresumed", (event) => {
+			console.log("autoslide RESUMED"); //DEBUG
 			
 			var audio = document.getElementById("backgroundMusic");
-			audio.play()
-		 } );
-		Reveal.on( 'autoslidepaused', event => { 
-			console.log('autoslide PAUSED') //DEBUG
+			audio.play();
+		});
+		Reveal.on("autoslidepaused", (event) => {
+			console.log("autoslide PAUSED"); //DEBUG
 			var audio = document.getElementById("backgroundMusic");
-			audio.pause()
-		} );
+			audio.play();
+			// audio.pause()
+		});
 		
 		window.addEventListener("keyup", playPauseKb, false);
 		
-		function playPauseKb(event) {//<-- added missing event parameter
+		function playPauseKb(event) {
+			//<-- added missing event parameter
 			event.preventDefault();
-			var x = event.which || event.keyCode;  
+			var audio = document.getElementById("backgroundMusic");
+			audio.play();
+			var x = event.which || event.keyCode;
 			//m on the keyboard
-			if (x === 77) { // The 'm' key
-			if (audioPlaying) {
-				console.log("Pausing")
-				audio.pause();
-				audioPlaying = false;
-			} else {
-				console.log("Playing")
-				audio.play();
-				audioPlaying = true;
+			if (x === 77) {
+				// The 'm' key
+				if (audioPlaying) {
+					console.log("Pausing");
+					// audio.pause();
+					audio.play();
+					audioPlaying = false;
+				} else {
+					console.log("Playing");
+					audio.play();
+					audioPlaying = true;
+				}
 			}
 		}
-	}
-</script>
+	</script>
 </body>
 </html>
