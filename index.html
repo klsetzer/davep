@@ -26,8 +26,7 @@
 	></audio>
 	<div class="reveal">
 		<div class="slides">
-			<section>
-				<audio data-autoplay="true" src=""></audio>
+			<section data-autoslide="8000">
 				<img
 				class="stretch"
 				src="images/Sheila/IMG_3480.jpeg"
@@ -35,7 +34,7 @@
 				/>
 				<h3>Dave P</h3>
 			</section>
-			<section>
+			<section data-autoslide="8000">
 				<img
 				class="stretch"
 				src="images/Sheila/IMG_5616.jpeg"
@@ -43,7 +42,7 @@
 				/>
 				<h3>Dave P</h3>
 			</section>
-			<section>
+			<section data-autoslide="8000">
 				<img
 				class="stretch"
 				src="images/Sheila/IMG_7850.jpeg"
@@ -51,7 +50,7 @@
 				/>
 				<h3>Dave P</h3>
 			</section>
-			<section>
+			<section data-autoslide="8000">
 				<img
 				class="stretch"
 				src="images/end_blessing.jpeg"
@@ -71,8 +70,8 @@
 		// - https://revealjs.com/config/
 		Reveal.initialize({
 			hash: true,
-			autoSlide: 8000,
-			loop: true,
+			autoSlide: 0,
+			loop: false,
 			
 			// Autoplay
 			keyboardCondition: "focused",
@@ -91,10 +90,10 @@
 		});
 	</script>
 	<script>
-		var audio = document.getElementById("backgroundMusic");
-		var audioPlaying = true;
-		audio.play();
-		console.log("ready player");
+		// var audio = document.getElementById("backgroundMusic");
+		// var audioPlaying = true;
+		// audio.play();
+		// console.log("ready player");
 		
 		Reveal.on("autoslideresumed", (event) => {
 			console.log("autoslide RESUMED"); //DEBUG
@@ -122,8 +121,7 @@
 				// The 'm' key
 				if (audioPlaying) {
 					console.log("Pausing");
-					// audio.pause();
-					audio.play();
+					audio.pause();
 					audioPlaying = false;
 				} else {
 					console.log("Playing");

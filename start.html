@@ -8,7 +8,21 @@
       id="backgroundMusic"
       src="audio/HoldOnToTheMemories.mp3"
     ></audio>
-      <input id="clickMe" type="button" value="Start" onclick="doFunction();" />
+    Keyboard Commands in Slideshow
+    <div style="margin-left: 50px">
+      <p>M - Start/Stop Music</p>
+      <p>F - Full Screen</p>
+      <p>&lt;ESC&gt; - Exit Full Screen</p>
+    </div>
+
+    <!-- &lt;SPACE&gt; - Start Slideshow -->
+    <input
+      id="clickMe"
+      type="button"
+      style="font-size: xx-large"
+      value="Start Slideshow"
+      onclick="doFunction();"
+    />
   </body>
 
   <script>
@@ -16,7 +30,7 @@
       var audio = document.getElementById("backgroundMusic");
       var audioPlaying = true;
       audio.play();
-      location.href='index.html'
+      location.href = "index.html";
     }
 
     // document.getElementById("clickMe").onclick = doFunction
