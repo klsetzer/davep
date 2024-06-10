@@ -1,5 +1,28 @@
 <html>
-    <body>
-        <a href="index.html">Start</a>
-    </body>
+  <head> </head>
+  <body>
+    <audio
+      data-autoplay
+      autoplay
+      loop
+      id="backgroundMusic"
+      src="audio/HoldOnToTheMemories.mp3"
+    ></audio>
+      <input id="clickMe" type="button" value="Start" onclick="doFunction();" />
+  </body>
+
+  <script>
+    function doFunction() {
+      var audio = document.getElementById("backgroundMusic");
+      var audioPlaying = true;
+      audio.play();
+      location.href='index.html'
+    }
+
+    // document.getElementById("clickMe").onclick = doFunction
+
+    // var el = document.getElementById("clickMe");
+    // if (el.addEventListener) el.addEventListener("click", doFunction, false);
+    // else if (el.attachEvent) el.attachEvent("onclick", doFunction);
+  </script>
 </html>
