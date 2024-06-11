@@ -26,13 +26,14 @@
 	></audio>
 	<div class="reveal">
 		<div class="slides" data-autoslide="8000">
-			<section data-autoslide="8000">
+			<section data-autoslide="8000" ontouchstart="mobileStart(event)">
 				<img
 				class="stretch"
 				src="images/Sheila/IMG_3480.jpeg"
 				alt="reading side"
 				/>
-				<h3>Dave P</h3>
+				<h3 onClick="var audio = document.getElementById('backgroundMusic');
+				audio.play();">Dave P</h3>
 			</section>
 			<section data-autoslide="8000">
 				<img
@@ -88,43 +89,40 @@
 		});
 	</script>
 	<script>
-		// var audio = document.getElementById("backgroundMusic");
-		// var audioPlaying = true;
-		// audio.play();
-		// console.log("ready player");
+
+		var audio = document.getElementById("backgroundMusic");
+		audio.play();
+		console.log("Player started");
 		
 		Reveal.on("autoslideresumed", (event) => {
 			console.log("autoslide RESUMED"); //DEBUG
-			
 			var audio = document.getElementById("backgroundMusic");
 			audio.play();
 		});
 		Reveal.on("autoslidepaused", (event) => {
 			console.log("autoslide PAUSED"); //DEBUG
 			var audio = document.getElementById("backgroundMusic");
-			// audio.play();
 			audio.pause()
 		});
 		
 		window.addEventListener("keyup", playPauseKb, false);
+
+		function mobileStart(event) {
+			Reveal.toggleAutoSlide();
+			audio.play();
+		}
 		
 		function playPauseKb(event) {
-			//<-- added missing event parameter
 			event.preventDefault();
-			var audio = document.getElementById("backgroundMusic");
-			audio.play();
 			var x = event.which || event.keyCode;
-			//m on the keyboard
-			if (x === 77) {
-				// The 'm' key
-				if (audioPlaying) {
-					console.log("Pausing");
-					audio.pause();
-					audioPlaying = false;
-				} else {
+			if (x === 77) { // 'm' on the keyboard
+				var audio = document.getElementById("backgroundMusic");
+				if (audio.paused) {
 					console.log("Playing");
 					audio.play();
-					audioPlaying = true;
+				} else {
+					console.log("Pausing");
+					audio.pause();
 				}
 			}
 		}
